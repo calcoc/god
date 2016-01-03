@@ -2,11 +2,18 @@ html,body{
 	max-height:700px;
 	background:#F5F5F5;
 }
-
+header{
+  height:150px;
+  text-align: center;
+}
+header img{
+ max-width: 100%;
+  height: auto;
+}
 a{
 	font-size: 11px;
 	text-decoration: none;
-	color: #000;
+	color: #008FA8;
 }
 #container {  
 margin:0 auto;
@@ -18,7 +25,7 @@ background:#F5F5F5;
 }  
 
 .item {
-max-width:280px;
+max-width:260px;
 margin:10px;
 float:left;
 background:#fff;
@@ -50,7 +57,7 @@ box-shadow: 0 5px 6px 1px #888;
  }
 
 .headline{
-	font-size: 16px;
+	font-size: 15px;
   font-weight: bold;
 	margin: 16px;
   z-index: 100;
@@ -58,23 +65,3 @@ box-shadow: 0 5px 6px 1px #888;
 
 
 
-@media screen and (max-width: 1000px) {
-  .item img{
-    width: 200px;
-  }
-}
-@media screen and (max-width: 760px) {
-  .item img{
-    width: 150px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .item img{
-    width: 100px;
-  }
-}
-@media screen and (max-width: 320px) {
-  .item img{
-    width: 50px;
-  }
-}
