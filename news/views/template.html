@@ -5,6 +5,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
 	<title>topnews</title>
 </head>
 <body>
@@ -23,8 +25,8 @@
 </div> 
 </section>
 <?php include_once "content.php" ?>
-<script>
 
+<script>
 var container = document.querySelector('#container');
 
 imagesLoaded(container, function () {
@@ -34,6 +36,33 @@ imagesLoaded(container, function () {
     isFitWidth: true,
     isAnimated: true
   });
+});
+</script>
+<script>
+    $.cookie.json = true;
+    var cookParam = $.cookie("push");
+    if(cookParam == null){
+        var cookParam =[]
+    }
+        $('#after').click(function(){
+    var flag    = $('.item').val(),
+        flagReg = new RegExp(flag);
+        if(cookParam == null){
+            cookParam = $.cookie("push");
+        }
+        if(cookParam.length > 7){
+            cookParam.splice( 0, 3);
+        }
+        if(cookParam.indexOf(flag)!= -1){
+            alert('既に登録されています')
+        }else{
+            for (i=1;i<=20;i++) {
+                cookParam.push($(".item"+i).val());
+            }
+            $.cookie('push', cookParam);
+            $('body').append('<p>後で読むに追記しました。</p>')
+        }
+    });
 });
 </script>
 </body>
