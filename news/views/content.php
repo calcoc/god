@@ -15,15 +15,11 @@
 	}else{echo'<img src= "./NoImage.png">';} ?>
     </p> 
     </a>
-  <div class = "bottom">
-  <div id = "time" >
-  </div>
-  <div id="cook">
+    <div id="cook">
     <input type="hidden" id="title<?= $i++?>" name="title" value="<?= $item->title;?>">
     <input type="hidden" id=""name="" value="">
     <input type="button" id="after" value="後で読む">
-  </div>
-  </div>
+    </div>
   </div>
 <?php endforeach ?>
 
