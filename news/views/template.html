@@ -2,29 +2,43 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./main.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+<script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript"src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
 
-	<title>topnews</title>
+<?php include_once"pagename.php";?>
+	<title>VOICE-<?=$name;?></title>
 </head>
 <body>
 <header>
 <img src="./ロゴ.png" alt="" width="400px" height="130px">
 </header><!-- /header -->
 
-<section>
+<div class = "sidebar">
   <div id ="navigation">
-  <ul>
-    <li><a href="./topnews" title="トップニュース">トップニュース</a></li>
-    <li><a href="./entame" title="エンタメ情報">エンタメ情報</a></li>
-    <li><a href="" title=""></a></li>
-    <li><a href="" title=""></a></li>
-  </ul>
+  <ul id="list">
+    <li><div class="box"><a href="./topnews" title="トップニュース">主要</a></div></li>
+    <li><div class="box"><a href="./suports" title="Sports">スポーツ</a></div></li>
+    <li><div class="box"><a href="./entame" title="Entame">エンタメ</a></div></li>
+    <li><div class="box"><a href="./lifehack" title="ライフハック">ライフハック</a></div></li>
+    <li><div class="box"><a href="./cinemas" title="映画情報">映画情報</a></div></li>
+    <li><div class="box"><a href="./beauty" title="Beauty">美容</a></div></li>
+    <li><div class="box"><a href="./itmedia" title="ITmedia">ITmedia</a></div></li>
+    <li><div class="box"><a href="./iphonemania" title="iPhone Mania">iPhone Mania</a></div></li>
+    <li><div class="box"><a href="./anime" title="Anime">アニメ</a></div></li>
+    </ul>
 </div> 
-</section>
-<?php include_once "content.php" ?>
+</div>
+<!-- 音声読み上げ　-->
+<aside>
+<input id="btn3" type="button" value="ReadNews" style="width:200px;"/>
+</aside>
+    <div id="a" title="<?= $i ?>"></div>
+<!-- /音声読み上げ -->
+<?php include_once "content.php"; ?>
 
 <script>
 var container = document.querySelector('#container');
@@ -34,10 +48,12 @@ imagesLoaded(container, function () {
     itemSelector: '.item',
     columnWidth: 3, 
     isFitWidth: true,
-    isAnimated: true
+    isAnimated: true,
   });
 });
+
 </script>
+
 <script>
     $.cookie.json = true;
     var cookParam = $.cookie("push");
@@ -63,7 +79,18 @@ imagesLoaded(container, function () {
             $('body').append('<p>後で読むに追記しました。</p>')
         }
     });
-});
 </script>
+<script>
+var timer = false;
+$(window).resize(function() {
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        location.reload(true);
+    }, 20);
+    });
+</script>
+<script type="text/javascript" src="./index.js"></script>
 </body>
 </html>
