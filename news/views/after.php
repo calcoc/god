@@ -4,7 +4,7 @@
         <title>後で読む</title>
     </head>
     <body>
-    <div id ="result">
+    <div id="result">
         $.cookie.json = true;
 var cookParam = $.cookie("push"),
     resultElm = $('#result');
@@ -25,6 +25,7 @@ var cookParam = $.cookie("push"),
 $('#remove').click(function(){
     $.removeCookie("push");
     location.reload();
-});
+    });
+    </div>
     </body>
 </html>

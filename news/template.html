@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen,print" href="./style.css" />
+<link rel="stylesheet" type="text/css" href="./main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+	<title>topnews</title>
+	  
+
+</head>
+<body>
+<header>
+<img src="./ロゴ.png" alt="" width="400px" height="130px">
+</header><!-- /header -->
+
+ 
+<section>
+  <div id ="navigation">
+  <ul>
+    <li><a href="./topnews" title="トップニュース">トップニュース</a></li>
+    <li><a href="./entame" title="エンタメ情報">エンタメ情報</a></li>
+    <li><a href="" title=""></a></li>
+    <li><a href="" title=""></a></li>
+  </ul>
+</div> 
+</section>
+
+<!-- 音声読み上げ　-->
+<aside>
+<input id="btn3" type="button" value="ReadNews" style="width:200px;"/>
+</aside>
+<!-- /音声読み上げ -->
+
+<?php include_once "content.php" ?>
+
+<div id="a" title="<?= $i ?>" />
+
+<script>
+
+var container = document.querySelector('#container');
+
+imagesLoaded(container, function () {
+  var msnry = new Masonry(container, {
+    itemSelector: '.item',
+    columnWidth: 3, 
+    isFitWidth: true,
+    isAnimated: true
+  });
+});
+</script>
+<script>
+    $.cookie.json = true;
+    var cookParam = $.cookie("push");
+    if(cookParam == null){
+        var cookParam =[]
+    }
+        $('#after').click(function(){
+    var flag    = $('.item').val(),
+        flagReg = new RegExp(flag);
+        if(cookParam == null){
+            cookParam = $.cookie("push");
+        }
+        if(cookParam.length > 7){
+            cookParam.splice( 0, 3);
+        }
+        if(cookParam.indexOf(flag)!= -1){
+            alert('既に登録されています')
+        }else{
+            for (i=1;i<=20;i++) {
+                cookParam.push($(".item"+i).val());
+            }
+            $.cookie('push', cookParam);
+            $('body').append('<p>後で読むに追記しました。</p>')
+        }
+    });
+});
+</script>
+<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
