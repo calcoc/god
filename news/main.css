@@ -25,10 +25,8 @@ a:hover{
 #container{
 margin-left: 150px;
 max-width:85%;
-border:1px solid #EEE; 
 overflow:auto; 
 background:none;
-
 }  
 
 .sidebar{
@@ -40,25 +38,34 @@ background:none;
 }
 #navigation ul{
   padding-right: 5px;
+  padding-left: 25px;
   list-style: none;
 }
 #navigation ul li{
 font-size: 17px;
-padding-bottom: 3px;
-  }
-#navigation ul li a{
-    color:#000;
-    font-style:normal;
+margin-bottom: 5px;
+width: 7.5em;
+height: 32px;
+line-height:32px;
+margin-left: 1em;
 }
-.box{
-    width: 7em;
-    height: 28px;
-    line-height:28px;
-}
-
-.box:hover{
+ li:hover{
   background:#e7e8e9;
 }
+#list li a{
+    color:#000;
+    font-style:normal;
+    display: block;
+
+
+}
+#list li a.active{
+  background-color:rgb(116, 208, 224);
+  color:white;
+
+
+}
+
 
 .item {
 max-width:250px;
@@ -105,7 +112,7 @@ h3{
 h3 span{
   color: #CF000F;
 }
-    #text1 {
+#text1 {
         width: 90%;
         height: 3em;
         padding: 10px;
@@ -116,6 +123,9 @@ h3 span{
         font-weight: 700;
     }
     #btn3 {
+        position: absolute;
+        top: 40px;
+        right: 10px;
         background: -webkit-linear-gradient(top,#008dfd 30%,#0370ea 100%);
         color: white;
         text-shadow: 1px 1px 1px #076bd2;
@@ -126,7 +136,14 @@ h3 span{
         font-size: 15px;
     }
     #selectVoice {
+
         width: 200px;
     }
 
+
+#time{
+  color:#a8a8a8;
+  font-size:12px;
+  float:right;
+}
 

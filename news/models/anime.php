@@ -6,5 +6,6 @@ $newsvar = get_object_vars($newsxml);
 $items   = $newsvar['channel']->item;
 $i = 1;
 $name = "アニメ" ;
+
 	return array('items' => $items,'i' =>$i,'name'=>$name);
 }

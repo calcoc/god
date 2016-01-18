@@ -14,25 +14,38 @@
 <header>
 <img src="./ロゴ.png" alt="" width="400px" height="130px" />
 </header>
-
+<script type="text/javascript">
+$(function(){
+    $('#list li a').each(function(){
+        var $href = $(this).attr('href');
+        if(location.href.match($href)) {
+        $(this).addClass('active');
+        } else {
+        $(this).removeClass('active');
+        }
+    });
+});
+    </script>
 <div class = "sidebar">
   <div id ="navigation">
   <ul id="list">
-    <li><div class="box"><a href="./topnews" title="トップニュース">主要</a></div></li>
-    <li><div class="box"><a href="./suports" title="Sports">スポーツ</a></div></li>
-    <li><div class="box"><a href="./entame" title="Entame">エンタメ</a></div></li>
-    <li><div class="box"><a href="./lifehack" title="ライフハック">ライフハック</a></div></li>
-    <li><div class="box"><a href="./cinemas" title="映画情報">映画情報</a></div></li>
-    <li><div class="box"><a href="./beauty" title="Beauty">美容</a></div></li>
-    <li><div class="box"><a href="./itmedia" title="ITmedia">ITmedia</a></div></li>
-    <li><div class="box"><a href="./iphonemania" title="iPhone Mania">iPhone Mania</a></div></li>
-    <li><div class="box"><a href="./anime" title="Anime">アニメ</a></div></li>
+    <li><a href="topnews" title="トップニュース">主要</a></li>
+    <li><a href="suports" title="Sports">スポーツ</a></li>
+    <li><a href="entame" title="Entame">エンタメ</a></li>
+    <li><a href="lifehack" title="ライフハック">ライフハック</a></li>
+    <li><a href="cinemas" title="映画情報">映画情報</a></li>
+    <li><a href="beauty" title="Beauty">美容</a></li>
+    <li><a href="itmedia" title="ITmedia">ITmedia</a></li>
+    <li><a href="iphonemania" title="iPhone Mania">iPhone Mania</a></li>
+    <li><a href="anime" title="Anime">アニメ</a></li>
     </ul>
 </div> 
 </div>
+
+
 <!-- 音声読み上げ　-->
 <aside>
-    <input type="button" id="btn3" value="ReadNews" style="width:200px;" />
+    <input type="button" id="btn3" value="音声を読み上げる" style="width:200px ;"/>
 </aside>
 <!-- /音声読み上げ -->
 <?php include_once "content.php"; ?>
@@ -79,8 +92,6 @@ imagesLoaded(container, function () {
     });
 
 </script>
-<script type="text/javascript"src="./index.js"></script>
-
 <script>
     var timer=false;
     $(window).resize(function(){
@@ -89,9 +100,11 @@ imagesLoaded(container, function () {
     }
     timer = setTimeout(function() {
         location.reload(true);
-    }, 20);
+    }, 200);
     });
 </script>
+
+<script type="text/javascript"src="./index.js"></script>
 
 </body>
 </html>

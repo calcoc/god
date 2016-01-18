@@ -22,7 +22,7 @@
   </a>
   <div class = "bottom">
   <span id = "time" >
-  <?=$date = date("H：i", strtotime($item->pubDate));?>
+  <?=$date = date("Y年m月d日 H時i分" , strtotime($item->pubDate));?>
   </span>
   <div id="cook">
     <input type="hidden" id="<?=$item->title;?>" name="title" value="<?= $item->title;?>">
